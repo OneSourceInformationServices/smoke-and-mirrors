@@ -347,9 +347,11 @@ const VerticalCollection = Component.extend({
     }
   },
 
-  didReceiveAttrs(args) {
-    const oldArray = getArg(args.oldAttrs, 'items');
-    const newArray = getArg(args.newAttrs, 'items');
+  didReceiveAttrs() {
+    const oldArray = getArg(this.get('oldAttrs'), 'items');
+    const newArray = getArg(this.get('newAttrs'), 'items');
+
+    this.set('oldAttrs', newArray); 
 
     if (oldArray && newArray && this._changeIsPrepend(oldArray, newArray)) {
       this._isPrepending = true;
