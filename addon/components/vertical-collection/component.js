@@ -37,7 +37,7 @@ const VerticalCollection = Component.extend({
   tagName: 'vertical-collection',
   layout,
 
-  content: computed.deprecatingAlias('items'),
+  // content: computed.deprecatingAlias('items'),
   items: undefined,
 
   // –––––––––––––– Required Settings
@@ -351,7 +351,7 @@ const VerticalCollection = Component.extend({
     const oldArray = getArg(this.get('oldAttrs'), 'items');
     const newArray = getArg(this.get('newAttrs'), 'items');
 
-    this.set('oldAttrs', newArray); 
+    this.set('oldAttrs', newArray);
 
     if (oldArray && newArray && this._changeIsPrepend(oldArray, newArray)) {
       this._isPrepending = true;
