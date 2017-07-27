@@ -109,10 +109,10 @@ test('destroy is destructive', (assert) => {
   assert.expect(5);
 
   let component = { element: App.planetADiv,
-                    unregisterSatellite() {
-                      assert.ok(true, 'The Component unregisterSatellite hook is called');
-                    }
-                  };
+    unregisterSatellite() {
+      assert.ok(true, 'The Component unregisterSatellite hook is called');
+    }
+  };
   let satellite = new Satellite(component);
 
   satellite.geography.destroy = function() {
