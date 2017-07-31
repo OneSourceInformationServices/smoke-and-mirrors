@@ -51,10 +51,9 @@ export class Scheduler {
   }
 
   flush() {
-    let i;
-    let q;
+    let i, q;
 
-    // run.begin();
+    run.begin();
     if (this.sync.length) {
       q = this.sync;
       this.sync = [];
@@ -72,9 +71,9 @@ export class Scheduler {
         q[i]();
       }
     }
-    // run.end();
+    run.end();
 
-    // run.begin();
+    run.begin();
     if (this.measure.length) {
       q = this.measure;
       this.measure = [];
