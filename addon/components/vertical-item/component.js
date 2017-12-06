@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import layout from './template';
-import getOwner from 'ember-getowner-polyfill';
 import scheduler from '../../-private/scheduler';
 
 const {
@@ -143,7 +142,7 @@ export default Component.extend({
 
   init() {
     this._super();
-    this.registry = getOwner(this).lookup('-view-registry:main');
+    this.registry = Ember.getOwner(this).lookup('-view-registry:main');
     let tag = this.get('itemTagName');
 
     this.set('tagName', tag);
