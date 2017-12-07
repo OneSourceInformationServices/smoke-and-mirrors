@@ -1,4 +1,4 @@
-import { assert } from 'smoke-and-mirrors-debug/helpers';
+import { assert } from 'smoke-and-mirrors/-debug/helpers';
 
 export default function estimateElementHeight(element, fallbackHeight) {
   assert(`You called estimateElement height without a fallbackHeight`, fallbackHeight);
