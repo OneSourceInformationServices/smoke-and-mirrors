@@ -27,19 +27,19 @@ module.exports = {
     babelOptions.plugins = babelOptions.plugins || [];
     babelOptions.plugins.push({ transformer: stripClassCallCheck, position: 'after' });
 
-    if (/production/.test(env) || /test/.test(env)) {
-      babelOptions.plugins.push(
-        filterImports({
-        'smoke-and-mirrors/-debug/helpers': [
-          'assert',
-          'warn',
-          'debug',
-          'instrument',
-          'deprecate',
-          'stripInProduction'
-        ]})
-      );
-    }
+    // if (/production/.test(env) || /test/.test(env)) {
+    //   babelOptions.plugins.push(
+    //     filterImports({
+    //     'smoke-and-mirrors/-debug/helpers': [
+    //       'assert',
+    //       'warn',
+    //       'debug',
+    //       'instrument',
+    //       'deprecate',
+    //       'stripInProduction'
+    //     ]})
+    //   );
+    // }
 
     this._hasSetupBabelOptions = true;
   },
