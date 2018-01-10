@@ -27,8 +27,6 @@ module.exports = {
     babelOptions.plugins = babelOptions.plugins || [];
     babelOptions.plugins.push({ transformer: stripClassCallCheck, position: 'after' });
 
-    babelOptions.presets = [['es2015', { modules: false }]];
-
     // if (/production/.test(env) || /test/.test(env)) {
     //   babelOptions.plugins.push(
     //     filterImports({
