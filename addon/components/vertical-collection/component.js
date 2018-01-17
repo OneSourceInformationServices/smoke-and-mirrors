@@ -348,10 +348,16 @@ const VerticalCollection = Component.extend({
   },
 
   didReceiveAttrs() {
-    const oldArray = getArg(this.get('oldAttrs'), 'items');
-    const newArray = getArg(this.get('newAttrs'), 'items');
 
-    this.set('oldAttrs', newArray);
+    // https://github.com/emberjs/rfcs/blob/master/text/0191-deprecate-component-lifecycle-hook-args.md#didreceiveattrs
+    let oldArray = this.get('_previousItems');
+    let newArray = this.get('items');
+
+    if (oldArray && oldArray !== newArray) {
+      this.map.move({ from: oldArray, to: newArray });
+    }
+
+    this.set('_previousItems', newArray);
 
     if (oldArray && newArray && this._changeIsPrepend(oldArray, newArray)) {
       this._isPrepending = true;
