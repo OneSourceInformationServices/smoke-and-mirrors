@@ -23,9 +23,9 @@ function getContent(obj) {
   return get(obj, 'content');
 }
 
-function getArg(args, name) {
-  return (args && args[name]) ? (args[name].value || args[name]) : undefined;
-}
+// function getArg(args, name) {
+//   return (args && args[name]) ? (args[name].value || args[name]) : undefined;
+// }
 
 const VerticalCollection = Component.extend({
   /*
@@ -354,7 +354,7 @@ const VerticalCollection = Component.extend({
     let newArray = this.get('items');
 
     if (oldArray && oldArray !== newArray) {
-      this.map.move({ from: oldArray, to: newArray });
+      newArray.push(...oldArray);
     }
 
     this.set('_previousItems', newArray);
